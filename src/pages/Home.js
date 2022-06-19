@@ -7,7 +7,7 @@ import SearchExercises from "../components/SearchExercises"
 
 const Home = () => {
   const [exercises, setExercises] = useState([])
-  const [bodyPart, setBodyPart] = useState("all")
+  const [bodyPart, setBodyPart] = useState("")
 
   return (
     <Box>
@@ -17,11 +17,13 @@ const Home = () => {
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
       />
-      <Exercises
-        setExercises={setExercises}
-        bodyPart={bodyPart}
-        exercises={exercises}
-      />
+      {bodyPart !== "" && (
+        <Exercises
+          setExercises={setExercises}
+          bodyPart={bodyPart}
+          exercises={exercises}
+        />
+      )}
     </Box>
   )
 }
